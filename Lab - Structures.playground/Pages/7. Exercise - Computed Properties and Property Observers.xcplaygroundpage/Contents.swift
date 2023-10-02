@@ -7,7 +7,14 @@ struct Rectangle {
     var width: Int
     var height: Int
     
+    func Area() -> Int {
+        width * height
+    }
+    
 }
+
+var rec = Rectangle(width: 4, height: 5)
+rec.Area()
 
 
 /*:
@@ -23,6 +30,9 @@ struct Height {
     init(heightInInches: Double) {
         self.heightInInches = heightInInches
         self.heightInCentimeters = heightInInches*2.54
+    }
+    didSet {
+        if heightInInches != oldValue
     }
     
     init(heightInCentimeters: Double) {

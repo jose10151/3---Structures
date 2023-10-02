@@ -26,10 +26,15 @@ print(diary)
  Make a `Laptop` struct with three variable properties, `screenSize` of type `Int`, `repairCount` of type `Int`, and `yearPurchased` of type `Int`. Give `screenSize` a default value of `13` and `repairCount` a default value of `0`, and leave `yearPurchased` without a default value. Declare two instances of `Laptop`, using the two provided memberwise initializers.
  */
 struct Laptop {
-    var screenSize: Int
-    var repairCount: Int
+    var screenSize: Int = 13
+    var repairCount: Int = 0
     var yearPurshased: Int
 }
+
+let comp = Laptop(yearPurshased: 2019)
+let comp2 = Laptop(yearPurshased: 2018)
+print(comp)
+print(comp2)
 
 /*:
  Make a `Height` struct with two variable properties, `heightInInches` and `heightInCentimeters`. Both should be of type `Double`.
@@ -38,13 +43,30 @@ struct Laptop {
 
  - Example: If you use the initializer for inches to pass in a height of 65, the initializer should set `heightInInches` to 65 and `heightInCentimeters` to 165.1.
  */
+struct Height {
+    var heightInInches: Double
+    var heightInCentimeters: Double
+    
+    init(heightInInches: Double){
+        self.heightInInches = heightInInches
+        self.heightInCentimeters = heightInInches * 2.56
+    }
+    
+    init(heightInCentimeters: Double){
+        self.heightInInches = heightInCentimeters/2.56
+        self.heightInCentimeters = heightInCentimeters
+    }
+}
 
-
+var tall = Height(heightInInches: 65.0)
+var taller = Height(heightInCentimeters: 165.1)
 //:  Now create a variable instance of `Height` called `someonesHeight`. Use the initializer for inches to set the height to 65. Print out the property for height in centimeters and verify that it is equal to 165.1.
-
+var someonesHeight = Height(heightInInches: 65.0)
+print(someonesHeight)
 
 //:  Now create a variable instance of `Height` called `myHeight` and initialize it with your own height. Verify that both `heightInInches` and `heightInCentimeters` are accurate.
-
+ var myHeight = Height(heightInInches: 69)
+print(myHeight)
 
 /*:
 [Previous](@previous)  |  page 3 of 10  |  [Next: App Exercise - Users and Distance](@next)
